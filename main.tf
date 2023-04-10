@@ -15,7 +15,7 @@ terraform {
   required_version = ">= 1.1.0"
 
   cloud {
-    organization = "REPLACE_ME"
+    organization = "MarioRoberto-TCloud"
 
     workspaces {
       name = "learn-terraform-github-actions"
@@ -25,6 +25,9 @@ terraform {
 
 provider "aws" {
   region = "us-west-2"
+  assume_role {
+    role_arn = "arn:aws:iam::042112416138:role/iac-to-master"
+  }
 }
 
 resource "random_pet" "sg" {}
